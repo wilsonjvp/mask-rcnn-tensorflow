@@ -72,21 +72,21 @@ class COCODetection(object):
             return ret
         self.coco.createIndex(use_ext=True)
         cocoDt = self.coco.loadRes(json_file, use_ext=True)
-        # cocoEval = COCOeval(self.coco, cocoDt, iou_type, use_ext=True)
-        # cocoEval.evaluate()
-        # cocoEval.accumulate()
-        # cocoEval.summarize()
+        cocoEval = COCOeval(self.coco, cocoDt, iou_type, use_ext=True)
+        cocoEval.evaluate()
+        cocoEval.accumulate()
+        cocoEval.summarize()
 
-        for catId in self.COCO_id_to_category_id:
-            if catId == 4:
-                cocoEval = COCOeval(self.coco, cocoDt, iou_type, use_ext=True)
-                cocoEval.params.catIds = [catId]
-                cocoEval.evaluate()
-                cocoEval.accumulate()
-                cocoEval.summarize()
+        # for catId in self.COCO_id_to_category_id:
+        #     if catId == 4:
+        #         cocoEval = COCOeval(self.coco, cocoDt, iou_type, use_ext=True)
+        #         cocoEval.params.catIds = [catId]
+        #         cocoEval.evaluate()
+        #         cocoEval.accumulate()
+        #         cocoEval.summarize()
 
-            for k in range(6):
-                ret[f'mAP({iou_type})/' + fields[k]] = cocoEval.stats[k]
+        for k in range(6):
+            ret[f'mAP({iou_type})/' + fields[k]] = cocoEval.stats[k]
 
         return ret
 
