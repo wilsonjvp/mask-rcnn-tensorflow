@@ -161,7 +161,7 @@ _C.PREPROC.PADDING_SHAPES = [(800, 1000), (800, 1200), (800, 1350)]    # only ad
 
 # anchors -------------------------
 _C.RPN.ANCHOR_STRIDE = 16
-_C.RPN.ANCHOR_SIZES = (8, 32, 64, 128, 256, 512)   # sqrtarea of the anchor box, default (32, 64, 128, 256, 512)
+_C.RPN.ANCHOR_SIZES = (2, 4, 8, 16, 32, 64, 128, 256, 512)   # sqrtarea of the anchor box, default (32, 64, 128, 256, 512)
 _C.RPN.ANCHOR_RATIOS = (0.5, 1., 2.)
 _C.RPN.POSITIVE_ANCHOR_THRESH = 0.7
 _C.RPN.NEGATIVE_ANCHOR_THRESH = 0.3
@@ -199,7 +199,7 @@ _C.FRCNN.FG_THRESH = 0.5
 _C.FRCNN.FG_RATIO = 0.25  # fg ratio in a ROI batch
 
 # FPN -------------------------
-_C.FPN.ANCHOR_STRIDES = (2, 4, 8, 16, 32, 64)  # strides for each FPN level. Must be the same length as ANCHOR_SIZES default (4, 8, 16, 32, 64)
+_C.FPN.ANCHOR_STRIDES = (1, 1, 2, 2, 4, 8, 16, 32, 64)  # strides for each FPN level. Must be the same length as ANCHOR_SIZES default (4, 8, 16, 32, 64)
 _C.FPN.PROPOSAL_MODE = 'Level'  # 'Level', 'Joint'
 _C.FPN.NUM_CHANNEL = 256
 _C.FPN.NORM = 'GN'  # 'None', 'GN'
