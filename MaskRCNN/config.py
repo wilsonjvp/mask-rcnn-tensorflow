@@ -161,7 +161,7 @@ _C.PREPROC.PADDING_SHAPES = [(800, 1000), (800, 1200), (800, 1350)]    # only ad
 
 # anchors -------------------------
 _C.RPN.ANCHOR_STRIDE = 16
-_C.RPN.ANCHOR_SIZES = (2, 4, 8, 16, 32, 64, 128, 256, 512)   # sqrtarea of the anchor box, default (32, 64, 128, 256, 512)
+_C.RPN.ANCHOR_SIZES = (32, 64, 128, 256, 512) #(2, 4, 8, 16, 32, 64, 128, 256, 512)   # sqrtarea of the anchor box, default (32, 64, 128, 256, 512)
 _C.RPN.ANCHOR_RATIOS = (0.5, 1., 2.)
 _C.RPN.POSITIVE_ANCHOR_THRESH = 0.7
 _C.RPN.NEGATIVE_ANCHOR_THRESH = 0.3
@@ -199,16 +199,16 @@ _C.FRCNN.FG_THRESH = 0.5
 _C.FRCNN.FG_RATIO = 0.25  # fg ratio in a ROI batch
 
 # FPN -------------------------
-_C.FPN.ANCHOR_STRIDES = (1, 1, 2, 2, 4, 8, 16, 32, 64)  # strides for each FPN level. Must be the same length as ANCHOR_SIZES default (4, 8, 16, 32, 64)
+_C.FPN.ANCHOR_STRIDES = (4, 8, 16, 32, 64) #(1, 1, 2, 2, 4, 8, 16, 32, 64)  # strides for each FPN level. Must be the same length as ANCHOR_SIZES default (4, 8, 16, 32, 64)
 _C.FPN.PROPOSAL_MODE = 'Level'  # 'Level', 'Joint'
 _C.FPN.NUM_CHANNEL = 256
-_C.FPN.NORM = 'GN'  # 'None', 'GN'
+_C.FPN.NORM = 'None'  # 'None', 'GN'
 # The head option is only used in FPN. For C4 models, the head is C5
-_C.FPN.BOXCLASS_HEAD_FUNC = 'boxclass_4conv1fc_gn_head' #'boxclass_2fc_head'
+_C.FPN.BOXCLASS_HEAD_FUNC = 'boxclass_2fc_head'
 # choices: boxclass_2fc_head, boxclass_4conv1fc_{,gn_}head
 _C.FPN.BOXCLASS_CONV_HEAD_DIM = 256
 _C.FPN.BOXCLASS_FC_HEAD_DIM = 1024
-_C.FPN.MRCNN_HEAD_FUNC = 'maskrcnn_up4conv_gn_head' #'maskrcnn_up4conv_head' # choices: maskrcnn_up4conv_{,gn_}head
+_C.FPN.MRCNN_HEAD_FUNC = 'maskrcnn_up4conv_head' # choices: maskrcnn_up4conv_{,gn_}head
 
 # Mask-RCNN
 _C.MRCNN.HEAD_DIM = 256
