@@ -161,8 +161,8 @@ _C.PREPROC.PADDING_SHAPES = [(800, 1000), (800, 1200), (800, 1350)]    # only ad
 
 # anchors -------------------------
 _C.RPN.ANCHOR_STRIDE = 16
-_C.RPN.ANCHOR_SIZES = (8, 64, 128, 256, 1024) #wienerberger   # sqrtarea of the anchor box, default (32, 64, 128, 256, 512)
-_C.RPN.ANCHOR_RATIOS = (0.5, 1., 2., 5., 7.5, 10.)# default (0.5, 1., 2.)
+_C.RPN.ANCHOR_SIZES = (32, 64, 128, 256, 512) # (8, 64, 128, 256, 1024) #wienerberger   # sqrtarea of the anchor box, default (32, 64, 128, 256, 512)
+_C.RPN.ANCHOR_RATIOS = (0.5, 1., 2.) # (0.5, 1., 2., 5., 7.5, 10.) Wienerberger # default (0.5, 1., 2.)
 _C.RPN.POSITIVE_ANCHOR_THRESH = 0.7
 _C.RPN.NEGATIVE_ANCHOR_THRESH = 0.3
 
